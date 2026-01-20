@@ -28,19 +28,21 @@ const Navbar = () => {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-primary-800 text-white py-2 px-4 hidden md:block">
+      <div className="bg-primary-800 text-white py-2 px-4 hidden lg:block">
         <div className="container mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4 xl:space-x-6">
             <div className="flex items-center space-x-2">
               <Phone size={14} />
-              <span>+91 98765 43210</span>
+              <span className="hidden xl:inline">+91 98765 43210</span>
+              <span className="xl:hidden">+91 98765...</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={14} />
-              <span>sales@kllatifix.com</span>
+              <span className="hidden xl:inline">sales@kllatifix.com</span>
+              <span className="xl:hidden">sales@kllatifix.com</span>
             </div>
           </div>
-          <div className="text-xs">
+          <div className="text-xs hidden xl:block">
             Leading Tile Adhesive Solutions Since 2010
           </div>
         </div>
@@ -57,28 +59,28 @@ const Navbar = () => {
         }`}
         style={{ zIndex: 9999 }}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16 lg:h-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity">
               <div className="flex items-center">
                 <img 
                   src="/logo.jpeg" 
                   alt="KL Latifix Logo" 
-                  className="h-10 md:h-12 w-auto object-contain"
+                  className="h-8 sm:h-10 md:h-12 w-auto object-contain"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
                   }}
                 />
-                <div className={`hidden w-10 h-10 md:w-12 md:h-12 rounded-lg items-center justify-center transition-colors ${
+                <div className={`hidden w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg items-center justify-center transition-colors ${
                   scrolled ? 'bg-blue-600' : 'bg-blue-600'
                 }`}>
-                  <span className="text-white font-bold text-lg md:text-xl">KL</span>
+                  <span className="text-white font-bold text-sm sm:text-lg md:text-xl">KL</span>
                 </div>
               </div>
-              <div>
-                <h1 className={`font-display font-bold text-lg md:text-xl transition-colors ${
+              <div className="hidden sm:block">
+                <h1 className={`font-display font-bold text-base sm:text-lg md:text-xl transition-colors ${
                   scrolled ? 'text-gray-900' : 'text-white'
                 }`}>
                   KL Latifix
@@ -92,13 +94,13 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className={`font-semibold text-base transition-all duration-200 px-3 py-2 rounded-lg ${
+                  className={`font-semibold text-sm xl:text-base transition-all duration-200 px-2 xl:px-3 py-2 rounded-lg whitespace-nowrap ${
                     location.pathname === item.path
                       ? scrolled 
                         ? 'text-white bg-blue-600 shadow-md' 
@@ -108,13 +110,20 @@ const Navbar = () => {
                         : 'text-white hover:text-blue-300 hover:bg-white/10'
                   }`}
                 >
-                  {item.name}
+                  {item.name === 'Technical Support' ? (
+                    <span className="hidden xl:inline">Technical Support</span>
+                  ) : (
+                    item.name
+                  )}
+                  {item.name === 'Technical Support' && (
+                    <span className="xl:hidden">Support</span>
+                  )}
                 </Link>
               ))}
               <Link
                 to="/contact"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-6 py-2 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm xl:text-base whitespace-nowrap"
               >
                 Get Quote
               </Link>
@@ -141,7 +150,21 @@ const Navbar = () => {
           }}
           className="lg:hidden bg-white border-t border-gray-200 overflow-hidden shadow-lg"
         >
-          <div className="container mx-auto px-4 py-4">
+          <div className="container mx-auto px-4 sm:px-6 py-4">
+            {/* Mobile Contact Info */}
+            <div className="border-b border-gray-200 pb-4 mb-4">
+              <div className="flex flex-col space-y-2 text-sm text-gray-600">
+                <div className="flex items-center space-x-2">
+                  <Phone size={16} />
+                  <span>+91 98765 43210</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail size={16} />
+                  <span>sales@kllatifix.com</span>
+                </div>
+              </div>
+            </div>
+            
             {navItems.map((item) => (
               <Link
                 key={item.name}

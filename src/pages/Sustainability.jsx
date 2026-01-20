@@ -142,22 +142,22 @@ const Sustainability = () => {
   ];
 
   return (
-    <div className="pt-24">
+    <div className="pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-green-900 via-green-800 to-blue-900">
+      <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-gradient-to-br from-green-900 via-green-800 to-blue-900">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
-          <div ref={leafRef} className="absolute top-20 left-10 w-16 h-16 text-green-400 opacity-30">
-            <Leaf size={64} />
+          <div ref={leafRef} className="absolute top-10 sm:top-20 left-4 sm:left-10 w-12 h-12 sm:w-16 sm:h-16 text-green-400 opacity-30">
+            <Leaf size={48} className="sm:w-16 sm:h-16" />
           </div>
-          <div ref={earthRef} className="absolute bottom-20 right-10 w-24 h-24 text-blue-400 opacity-20">
-            <Globe size={96} />
+          <div ref={earthRef} className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-16 h-16 sm:w-24 sm:h-24 text-blue-400 opacity-20">
+            <Globe size={64} className="sm:w-24 sm:h-24" />
           </div>
-          <div className="absolute top-1/2 left-1/4 w-8 h-8 bg-green-400 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/3 w-12 h-12 bg-blue-400 rounded-full opacity-15 animate-bounce"></div>
+          <div className="absolute top-1/2 left-1/4 w-6 h-6 sm:w-8 sm:h-8 bg-green-400 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/3 w-8 h-8 sm:w-12 sm:h-12 bg-blue-400 rounded-full opacity-15 animate-bounce"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -168,13 +168,13 @@ const Sustainability = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="inline-flex items-center bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-full px-6 py-2 mb-6"
+              className="inline-flex items-center bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6"
             >
-              <Leaf className="w-5 h-5 mr-3" />
-              <span className="font-medium">Sustainability Promise</span>
+              <Leaf className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+              <span className="font-medium text-sm sm:text-base">Sustainability Promise</span>
             </motion.div>
 
-            <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">
+            <h1 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 sm:mb-6">
               Building a{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
                 Greener Future

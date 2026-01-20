@@ -81,25 +81,25 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-24">
+    <div className="pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full -translate-x-48 -translate-y-48"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500 rounded-full translate-x-48 translate-y-48"></div>
+          <div className="absolute top-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-primary-500 rounded-full -translate-x-24 sm:-translate-x-48 -translate-y-24 sm:-translate-y-48"></div>
+          <div className="absolute bottom-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-secondary-500 rounded-full translate-x-24 sm:translate-x-48 translate-y-24 sm:translate-y-48"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">
+            <h1 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 sm:mb-6">
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">KL Latifix</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 leading-relaxed px-4 sm:px-0">
               Building trust through innovation, quality, and sustainable construction solutions since 2010.
             </p>
           </motion.div>
@@ -107,53 +107,53 @@ const About = () => {
       </section>
 
       {/* Who We Are */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             ref={ref}
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center"
           >
             <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center bg-primary-100 text-primary-700 rounded-full px-6 py-2 mb-6">
-                <span className="w-2 h-2 bg-primary-500 rounded-full mr-3"></span>
-                <span className="font-medium">Who We Are</span>
+              <div className="inline-flex items-center bg-primary-100 text-primary-700 rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6">
+                <span className="w-2 h-2 bg-primary-500 rounded-full mr-2 sm:mr-3"></span>
+                <span className="font-medium text-sm sm:text-base">Who We Are</span>
               </div>
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-gray-900 mb-6">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-4 sm:mb-6">
                 Leading the Future of Construction
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
                 KL Latifix Pvt. Ltd. has been at the forefront of the tile adhesive industry for over a decade. 
                 We combine advanced technology with deep industry expertise to deliver solutions that not only 
                 meet but exceed the expectations of builders, contractors, and architects.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
                 Our commitment to quality, innovation, and sustainability has made us a trusted partner for 
                 construction projects of all scales, from residential homes to large commercial complexes.
               </p>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600">15+</div>
-                  <div className="text-gray-600">Years Experience</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-primary-600">15+</div>
+                  <div className="text-gray-600 text-sm sm:text-base">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-secondary-600">500+</div>
-                  <div className="text-gray-600">Projects Completed</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-secondary-600">500+</div>
+                  <div className="text-gray-600 text-sm sm:text-base">Projects Completed</div>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="relative">
+            <motion.div variants={itemVariants} className="relative order-first lg:order-last">
               <img
                 src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                 alt="Construction site"
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl w-full"
               />
-              <div className="absolute -bottom-6 -right-6 bg-primary-600 text-white p-6 rounded-2xl">
-                <div className="text-2xl font-bold">100%</div>
-                <div className="text-sm">Quality Assured</div>
+              <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-primary-600 text-white p-4 sm:p-6 rounded-2xl">
+                <div className="text-xl sm:text-2xl font-bold">100%</div>
+                <div className="text-xs sm:text-sm">Quality Assured</div>
               </div>
             </motion.div>
           </motion.div>
@@ -161,23 +161,23 @@ const About = () => {
       </section>
 
       {/* Values Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
             <motion.h2
               variants={itemVariants}
-              className="font-display font-bold text-4xl md:text-5xl text-gray-900 mb-6"
+              className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-4 sm:mb-6"
             >
               Our Core Values
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0"
             >
               The principles that guide everything we do and drive our commitment to excellence.
             </motion.p>
@@ -187,22 +187,22 @@ const About = () => {
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           >
             {values.map((value, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <div className={`w-16 h-16 bg-gradient-to-r ${value.gradient} rounded-2xl flex items-center justify-center mb-6`}>
-                  {React.createElement(value.icon, { className: "w-8 h-8 text-white" })}
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${value.gradient} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 mx-auto sm:mx-0`}>
+                  {React.createElement(value.icon, { className: "w-6 h-6 sm:w-8 sm:h-8 text-white" })}
                 </div>
-                <h3 className="font-display font-bold text-xl text-gray-900 mb-4">
+                <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 mb-3 sm:mb-4 text-center sm:text-left">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base text-center sm:text-left">
                   {value.description}
                 </p>
               </motion.div>

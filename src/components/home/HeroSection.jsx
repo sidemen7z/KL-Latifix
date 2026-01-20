@@ -57,7 +57,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Fallback */}
       <div
         ref={bgRef}
@@ -78,7 +78,7 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 text-center text-white">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 text-center text-white pt-20 pb-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -88,16 +88,16 @@ const HeroSection = () => {
           {/* Badge */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center bg-primary-600/20 backdrop-blur-sm border border-primary-400/30 rounded-full px-6 py-2 mb-8"
+            className="inline-flex items-center bg-primary-600/20 backdrop-blur-sm border border-primary-400/30 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8"
           >
-            <span className="w-2 h-2 bg-secondary-400 rounded-full mr-3 animate-pulse"></span>
-            <span className="text-sm font-medium">Leading Construction Solutions Since 2010</span>
+            <span className="w-2 h-2 bg-secondary-400 rounded-full mr-2 sm:mr-3 animate-pulse"></span>
+            <span className="text-xs sm:text-sm font-medium">Leading Construction Solutions Since 2010</span>
           </motion.div>
 
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="font-display font-bold text-4xl md:text-6xl lg:text-7xl leading-tight mb-6"
+            className="font-display font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight mb-4 sm:mb-6"
           >
             <span className="block text-white">Premium</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
@@ -109,7 +109,7 @@ const HeroSection = () => {
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-xl md:text-2xl text-gray-100 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
           >
             KL Latifix Pvt. Ltd. is one of the leading tile adhesive companies in the construction industry, 
             delivering cutting-edge solutions with advanced technology and global expertise.
@@ -118,35 +118,35 @@ const HeroSection = () => {
           {/* Stats */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap justify-center gap-8 mb-12"
+            className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-4 sm:gap-8 mb-8 sm:mb-12"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary-400">15+</div>
-              <div className="text-sm text-gray-400">Years Experience</div>
+              <div className="text-2xl sm:text-3xl font-bold text-secondary-400">15+</div>
+              <div className="text-xs sm:text-sm text-gray-400">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary-400">500+</div>
-              <div className="text-sm text-gray-400">Projects Completed</div>
+              <div className="text-2xl sm:text-3xl font-bold text-secondary-400">500+</div>
+              <div className="text-xs sm:text-sm text-gray-400">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary-400">50+</div>
-              <div className="text-sm text-gray-400">Product Range</div>
+              <div className="text-2xl sm:text-3xl font-bold text-secondary-400">50+</div>
+              <div className="text-xs sm:text-sm text-gray-400">Product Range</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary-400">100%</div>
-              <div className="text-sm text-gray-400">Quality Assured</div>
+              <div className="text-2xl sm:text-3xl font-bold text-secondary-400">100%</div>
+              <div className="text-xs sm:text-sm text-gray-400">Quality Assured</div>
             </div>
           </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0"
           >
             <Link
               to="/products"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 transform hover:scale-105"
+              className="group bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 transform hover:scale-105 w-full sm:w-auto justify-center"
             >
               <span>Explore Products</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -155,7 +155,7 @@ const HeroSection = () => {
             <Link
               to="/contact"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="group bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
+              className="group bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 w-full sm:w-auto justify-center"
             >
               <span>Contact Us</span>
               <Play size={20} className="group-hover:scale-110 transition-transform" />
@@ -165,9 +165,9 @@ const HeroSection = () => {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-primary-500/10 rounded-full animate-pulse hidden lg:block"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-secondary-500/10 rounded-full animate-pulse hidden lg:block"></div>
-      <div className="absolute top-1/2 right-20 w-16 h-16 bg-primary-400/10 rounded-full animate-pulse hidden lg:block"></div>
+      <div className="absolute top-20 left-4 sm:left-10 w-16 sm:w-20 h-16 sm:h-20 bg-primary-500/10 rounded-full animate-pulse hidden md:block"></div>
+      <div className="absolute bottom-20 right-4 sm:right-10 w-24 sm:w-32 h-24 sm:h-32 bg-secondary-500/10 rounded-full animate-pulse hidden md:block"></div>
+      <div className="absolute top-1/2 right-10 sm:right-20 w-12 sm:w-16 h-12 sm:h-16 bg-primary-400/10 rounded-full animate-pulse hidden lg:block"></div>
     </section>
   );
 };

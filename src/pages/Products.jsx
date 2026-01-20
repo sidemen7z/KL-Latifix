@@ -544,23 +544,23 @@ const Products = () => {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full -translate-x-48 -translate-y-48"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500 rounded-full translate-x-48 translate-y-48"></div>
+          <div className="absolute top-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-primary-500 rounded-full -translate-x-24 sm:-translate-x-48 -translate-y-24 sm:-translate-y-48"></div>
+          <div className="absolute bottom-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-secondary-500 rounded-full translate-x-24 sm:translate-x-48 translate-y-24 sm:translate-y-48"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl mb-4 sm:mb-6">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">Products</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 leading-relaxed px-4 sm:px-0">
               Discover our comprehensive range of premium construction solutions designed for every project need.
             </p>
           </motion.div>
@@ -568,17 +568,32 @@ const Products = () => {
       </section>
 
       {/* Filters and Search */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-12 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             ref={ref}
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="flex flex-col lg:flex-row gap-6 items-center justify-between"
+            className="flex flex-col lg:flex-row gap-4 sm:gap-6 items-center justify-between"
           >
+            {/* Mobile Category Selector */}
+            <motion.div variants={itemVariants} className="w-full lg:hidden">
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+              >
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name} ({category.count})
+                  </option>
+                ))}
+              </select>
+            </motion.div>
+
             {/* Search */}
-            <motion.div variants={itemVariants} className="relative flex-1 max-w-md">
+            <motion.div variants={itemVariants} className="relative flex-1 max-w-md w-full lg:w-auto">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               <input
                 type="text"
@@ -590,7 +605,7 @@ const Products = () => {
             </motion.div>
 
             {/* Results Count */}
-            <motion.div variants={itemVariants} className="text-gray-600">
+            <motion.div variants={itemVariants} className="text-gray-600 text-sm sm:text-base">
               Showing {filteredProducts.length} products
             </motion.div>
           </motion.div>
@@ -598,15 +613,15 @@ const Products = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex gap-8">
-            {/* Sticky Category Menu */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex gap-6 lg:gap-8">
+            {/* Sticky Category Menu - Desktop Only */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              className="w-80 flex-shrink-0 sticky top-24 h-fit hidden lg:block"
+              className="w-64 xl:w-80 flex-shrink-0 sticky top-24 h-fit hidden lg:block"
             >
               <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                 <h3 className="font-display font-bold text-xl text-gray-900 mb-6">Categories</h3>
@@ -616,17 +631,17 @@ const Products = () => {
                       key={category.id}
                       variants={itemVariants}
                       onClick={() => setSelectedCategory(category.id)}
-                      className={`w-full flex items-center justify-between p-4 rounded-xl font-medium transition-all duration-300 ${
+                      className={`w-full flex items-center justify-between p-3 xl:p-4 rounded-xl font-medium transition-all duration-300 text-sm xl:text-base ${
                         selectedCategory === category.id
                           ? 'bg-blue-600 text-white shadow-lg'
                           : 'bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600'
                       }`}
                     >
-                      <div className="flex items-center space-x-3">
-                        {React.createElement(category.icon, { size: 20 })}
-                        <span>{category.name}</span>
+                      <div className="flex items-center space-x-2 xl:space-x-3">
+                        {React.createElement(category.icon, { size: 18 })}
+                        <span className="truncate">{category.name}</span>
                       </div>
-                      <span className={`text-xs px-2 py-1 rounded-full ${
+                      <span className={`text-xs px-2 py-1 rounded-full flex-shrink-0 ${
                         selectedCategory === category.id
                           ? 'bg-white/20 text-white'
                           : 'bg-gray-200 text-gray-600'
@@ -640,12 +655,12 @@ const Products = () => {
             </motion.div>
 
             {/* Products Grid */}
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
-                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
               >
                 {filteredProducts.map((product) => (
                   <motion.div
@@ -656,7 +671,7 @@ const Products = () => {
                     onClick={() => setSelectedProduct(product)}
                   >
                     {/* Product Image */}
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-40 sm:h-48 overflow-hidden">
                       <img
                         src={product.image}
                         alt={product.name}
@@ -665,55 +680,55 @@ const Products = () => {
                       <div className={`absolute inset-0 bg-gradient-to-t ${product.gradient} opacity-60`}></div>
                       
                       {/* Type & Color Badges */}
-                      <div className="absolute top-4 left-4 flex flex-col space-y-2">
-                        <span className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1 text-xs font-semibold text-gray-900">
+                      <div className="absolute top-2 sm:top-4 left-2 sm:left-4 flex flex-col space-y-1 sm:space-y-2">
+                        <span className="bg-white/90 backdrop-blur-sm rounded-lg px-2 sm:px-3 py-1 text-xs font-semibold text-gray-900">
                           {product.type}
                         </span>
-                        <span className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1 text-xs font-medium text-gray-700">
+                        <span className="bg-white/90 backdrop-blur-sm rounded-lg px-2 sm:px-3 py-1 text-xs font-medium text-gray-700">
                           {product.color}
                         </span>
                       </div>
 
                       {/* Rating Badge */}
-                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1">
-                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        <span className="text-sm font-semibold">{product.rating}</span>
+                      <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/90 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1 flex items-center space-x-1">
+                        <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-current" />
+                        <span className="text-xs sm:text-sm font-semibold">{product.rating}</span>
                       </div>
 
                       {/* Price Badge */}
-                      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
-                        <span className="font-bold text-gray-900">{product.price}</span>
+                      <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-white/90 backdrop-blur-sm rounded-lg px-2 sm:px-3 py-1 sm:py-2">
+                        <span className="font-bold text-gray-900 text-xs sm:text-sm">{product.price}</span>
                       </div>
                     </div>
 
                     {/* Product Info */}
-                    <div className="p-6">
-                      <h3 className="font-display font-bold text-xl text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <div className="p-4 sm:p-6">
+                      <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                         {product.name}
                       </h3>
                       
-                      <p className="text-sm text-gray-500 mb-3">{product.application}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">{product.application}</p>
                       
-                      <p className="text-gray-600 leading-relaxed mb-4 text-sm">
+                      <p className="text-gray-600 leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm line-clamp-2">
                         {product.description}
                       </p>
 
                       {/* Features */}
-                      <div className="grid grid-cols-1 gap-2 mb-4">
+                      <div className="grid grid-cols-1 gap-1 sm:gap-2 mb-3 sm:mb-4">
                         {product.features.slice(0, 2).map((feature, index) => (
                           <div key={index} className="flex items-center space-x-2">
-                            <CheckCircle className="w-4 h-4 text-green-500" />
-                            <span className="text-xs text-gray-600">{feature}</span>
+                            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                            <span className="text-xs text-gray-600 truncate">{feature}</span>
                           </div>
                         ))}
                       </div>
 
                       {/* View Details Button */}
-                      <div className={`w-0 h-1 bg-gradient-to-r ${product.gradient} rounded-full group-hover:w-full transition-all duration-500 mb-4`}></div>
+                      <div className={`w-0 h-1 bg-gradient-to-r ${product.gradient} rounded-full group-hover:w-full transition-all duration-500 mb-3 sm:mb-4`}></div>
                       
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-500">Click for details</span>
-                        <ArrowRight size={16} className="text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                        <span className="text-xs sm:text-sm text-gray-500">Click for details</span>
+                        <ArrowRight size={14} className="text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all flex-shrink-0" />
                       </div>
                     </div>
                   </motion.div>

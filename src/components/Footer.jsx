@@ -77,42 +77,42 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
+          className="py-12 sm:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12"
         >
           {/* Company Info */}
-          <motion.div variants={itemVariants} className="lg:col-span-1">
-            <Link to="/" className="flex items-center space-x-3 mb-6">
+          <motion.div variants={itemVariants} className="sm:col-span-2 lg:col-span-1">
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
               <div className="flex items-center">
                 <img 
                   src="/logo.jpeg" 
                   alt="KL Latifix Logo" 
-                  className="h-12 md:h-14 w-auto object-contain"
+                  className="h-10 sm:h-12 md:h-14 w-auto object-contain"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
                   }}
                 />
-                <div className="hidden w-12 h-12 md:w-14 md:h-14 bg-blue-600 rounded-xl items-center justify-center">
-                  <span className="text-white font-bold text-xl md:text-2xl">KL</span>
+                <div className="hidden w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-600 rounded-xl items-center justify-center">
+                  <span className="text-white font-bold text-lg sm:text-xl md:text-2xl">KL</span>
                 </div>
               </div>
               <div>
-                <h3 className="font-display font-bold text-2xl">KL Latifix</h3>
-                <p className="text-sm text-gray-400">Premium Solutions</p>
+                <h3 className="font-display font-bold text-xl sm:text-2xl">KL Latifix</h3>
+                <p className="text-xs sm:text-sm text-gray-400">Premium Solutions</p>
               </div>
             </Link>
             
-            <p className="text-gray-300 leading-relaxed mb-6">
+            <p className="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
               Leading tile adhesive company delivering cutting-edge solutions with 
               advanced technology and global expertise for over 15 years.
             </p>
 
             {/* Certifications */}
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {certifications.map((cert, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  {React.createElement(cert.icon, { className: "w-5 h-5 text-secondary-400" })}
-                  <span className="text-sm text-gray-300">{cert.text}</span>
+                <div key={index} className="flex items-center space-x-2 sm:space-x-3">
+                  {React.createElement(cert.icon, { className: "w-4 h-4 sm:w-5 sm:h-5 text-secondary-400 flex-shrink-0" })}
+                  <span className="text-xs sm:text-sm text-gray-300">{cert.text}</span>
                 </div>
               ))}
             </div>
@@ -120,15 +120,16 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-display font-bold text-xl mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-lg sm:text-xl mb-4 sm:mb-6">Quick Links</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200 flex items-center group"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200 flex items-center group text-sm sm:text-base"
                   >
-                    <ArrowRight size={16} className="mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
+                    <ArrowRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0" />
                     <span>{link.name}</span>
                   </Link>
                 </li>
@@ -138,15 +139,16 @@ const Footer = () => {
 
           {/* Products */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-display font-bold text-xl mb-6">Our Products</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-lg sm:text-xl mb-4 sm:mb-6">Our Products</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {products.map((product, index) => (
                 <li key={index}>
                   <Link
                     to="/products"
-                    className="text-gray-300 hover:text-secondary-400 transition-colors duration-200 flex items-center group"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="text-gray-300 hover:text-secondary-400 transition-colors duration-200 flex items-center group text-sm sm:text-base"
                   >
-                    <ArrowRight size={16} className="mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
+                    <ArrowRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0" />
                     <span>{product}</span>
                   </Link>
                 </li>
@@ -156,12 +158,12 @@ const Footer = () => {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-display font-bold text-xl mb-6">Contact Info</h4>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-primary-400 mt-1 flex-shrink-0" />
+            <h4 className="font-display font-bold text-lg sm:text-xl mb-4 sm:mb-6">Contact Info</h4>
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-start space-x-2 sm:space-x-3">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary-400 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-300 text-xs sm:text-sm">
                     123 Business District,<br />
                     Mumbai, Maharashtra 400001<br />
                     India
@@ -169,21 +171,21 @@ const Footer = () => {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-secondary-400" />
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-400 flex-shrink-0" />
                 <a 
                   href="tel:+919876543210" 
-                  className="text-gray-300 hover:text-secondary-400 transition-colors"
+                  className="text-gray-300 hover:text-secondary-400 transition-colors text-xs sm:text-sm"
                 >
                   +91 98765 43210
                 </a>
               </div>
               
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-purple-400" />
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 flex-shrink-0" />
                 <a 
                   href="mailto:sales@kllatifix.com" 
-                  className="text-gray-300 hover:text-purple-400 transition-colors"
+                  className="text-gray-300 hover:text-purple-400 transition-colors text-xs sm:text-sm break-all"
                 >
                   sales@kllatifix.com
                 </a>
@@ -191,9 +193,9 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="mt-8">
-              <h5 className="font-semibold mb-4">Follow Us</h5>
-              <div className="flex space-x-4">
+            <div className="mt-6 sm:mt-8">
+              <h5 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Follow Us</h5>
+              <div className="flex space-x-3 sm:space-x-4">
                 {[
                   { icon: Facebook, color: 'hover:text-blue-400' },
                   { icon: Twitter, color: 'hover:text-sky-400' },

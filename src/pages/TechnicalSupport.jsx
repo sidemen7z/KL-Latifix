@@ -184,25 +184,25 @@ const TechnicalSupport = () => {
   ];
 
   return (
-    <div className="pt-24">
+    <div className="pt-16 sm:pt-20 lg:pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full -translate-x-48 -translate-y-48"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500 rounded-full translate-x-48 translate-y-48"></div>
+          <div className="absolute top-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-primary-500 rounded-full -translate-x-24 sm:-translate-x-48 -translate-y-24 sm:-translate-y-48"></div>
+          <div className="absolute bottom-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-secondary-500 rounded-full translate-x-24 sm:translate-x-48 translate-y-24 sm:translate-y-48"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">
+            <h1 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 sm:mb-6">
               Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">Support</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 leading-relaxed px-4 sm:px-0">
               Expert guidance, comprehensive training, and 24/7 support to ensure your projects achieve perfect results.
             </p>
           </motion.div>
@@ -210,14 +210,14 @@ const TechnicalSupport = () => {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             ref={ref}
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
             <motion.h2
               variants={itemVariants}

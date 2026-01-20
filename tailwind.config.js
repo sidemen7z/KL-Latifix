@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+        '3xl': '1600px',
+      },
       colors: {
         primary: {
           50: '#eff6ff',
@@ -16,6 +20,7 @@ module.exports = {
           900: '#1e3a8a',
         },
         secondary: {
+          400: '#4ade80',
           500: '#10b981',
           600: '#059669',
           700: '#047857',
@@ -29,6 +34,11 @@ module.exports = {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
         'display': ['Poppins', 'system-ui', 'sans-serif'],
       },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
       animation: {
         'fade-in-up': 'fadeInUp 0.8s ease-out',
         'fade-in': 'fadeIn 0.6s ease-out',
@@ -36,6 +46,7 @@ module.exports = {
         'slide-in-right': 'slideInRight 0.8s ease-out',
         'zoom-in': 'zoomIn 0.6s ease-out',
         'counter': 'counter 2s ease-out',
+        'bounce-slow': 'bounce 3s infinite',
       },
       keyframes: {
         fadeInUp: {
