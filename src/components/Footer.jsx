@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
   Linkedin,
   ArrowRight,
   Award,
@@ -83,9 +83,9 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
               <div className="flex items-center">
-                <img 
-                  src="/logo.jpeg" 
-                  alt="KL Latifix Logo" 
+                <img
+                  src="/logo.jpeg"
+                  alt="KL Latifix Logo"
                   className="h-10 sm:h-12 md:h-14 w-auto object-contain"
                   onError={(e) => {
                     e.target.style.display = 'none';
@@ -101,9 +101,9 @@ const Footer = () => {
                 <p className="text-xs sm:text-sm text-gray-400">Premium Solutions</p>
               </div>
             </Link>
-            
+
             <p className="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-              Leading tile adhesive company delivering cutting-edge solutions with 
+              Leading tile adhesive company delivering cutting-edge solutions with
               advanced technology and global expertise for over 15 years.
             </p>
 
@@ -170,21 +170,21 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-400 flex-shrink-0" />
-                <a 
-                  href="tel:+919876543210" 
+                <a
+                  href="tel:+919876543210"
                   className="text-gray-300 hover:text-secondary-400 transition-colors text-xs sm:text-sm"
                 >
                   +91 98765 43210
                 </a>
               </div>
-              
+
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 flex-shrink-0" />
-                <a 
-                  href="mailto:sales@kllatifix.com" 
+                <a
+                  href="mailto:sales@kllatifix.com"
                   className="text-gray-300 hover:text-purple-400 transition-colors text-xs sm:text-sm break-all"
                 >
                   sales@kllatifix.com
@@ -249,11 +249,25 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="py-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center"
+          className="py-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4"
         >
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 KL Latifix Pvt. Ltd. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-gray-400 text-sm">
+              © 2024 KL Latifix Pvt. Ltd. All rights reserved.
+            </p>
+            <span className="hidden md:inline text-gray-600">|</span>
+            <p className="text-gray-400 text-sm">
+              Made by{' '}
+              <a
+                href="https://aise360.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-400 hover:text-primary-300 font-semibold transition-colors duration-200"
+              >
+                aise360
+              </a>
+            </p>
+          </div>
           <div className="flex space-x-6 text-sm">
             <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
